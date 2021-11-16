@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+}
+table{
+    margin-bottom: 50px;
+}
+    </style>
+    <title>Assessment</title>
+</head>
+<body>
+
+    <h1>Table</h1>
+
+    <table id="table">
+        <thead>
+            <tr>
+            <th>S.no.</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>City</th>
+            <th>country</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Abhinav</td>
+                <td>Mehta</td>
+                <td>Delhi</td>
+                <td>India</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Animesh </td>
+                <td>Mehta</td>
+                <td>Delhi</td>
+                <td>India</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Rishabh</td>
+                <td>Gulla</td>
+                <td>Punjab</td>
+                <td>India</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Akshat</td>
+                <td>Kalra</td>
+                <td>UP</td>
+                <td>India</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Manubhav</td>
+                <td>Tamta</td>
+                <td>Maryland</td>
+                <td>USA</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button onclick="addRow('table')">Add row at Bottom</button>
+    <button onclick="addRowTop('table')">Add row at Top</button>
+    
+
+    <script>
+        //add row at the bottom of the table
+function addRow(tableID) {
+    var table = document.getElementById(tableID);
+    var rowCount = table.rows.length;
+    var row = table.insertRow(rowCount);
+    var colCount = table.rows[0].cells.length;
+    for(var i=0; i<colCount; i++) {
+        var newcell = row.insertCell(i);
+        newcell.innerHTML = table.rows[0].cells[i].innerHTML;
+    }
+    adjustSno(tableID);
+}
+
+//add row at the top of the table
+function addRowTop(tableID) {
+    var table = document.getElementById(tableID);
+    var rowCount = table.rows.length;
+    var row = table.insertRow(1);
+    var colCount = table.rows[0].cells.length;
+    for(var i=0; i<colCount; i++) {
+        var newcell = row.insertCell(i);
+        newcell.innerHTML = table.rows[0].cells[i].innerHTML;
+    }
+    adjustSno(tableID);
+}
+
+//adjust s.no. column data in the table
+function adjustSno(tableID) {
+    var table = document.getElementById(tableID);
+    var rowCount = table.rows.length;
+    for(var i=1; i<rowCount; i++) {
+        table.rows[i].cells[0].innerHTML = i;
+    }
+}
+
+
+
+    </script>
+</body>
+</html>

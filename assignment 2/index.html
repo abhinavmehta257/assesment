@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assessment 2</title>
+</head>
+<body>
+    <h3>Enter the sentence</h3>
+    <input type="text" name="sentence" id="sentence">
+    <h3>Enter the letter</h3>
+    <input type="text" name="letter" id="letter"><br>
+    Output: <span id="output"></span><br>
+    <br>
+    <button id="submit" onclick="btnClicked()">Submit</button>
+
+    <script>
+        // function to output the rest of the sentence after the first occurrence of the letter in the sentence
+
+function btnClicked(){
+    document.getElementById("output").innerHTML = restOfSentence(document.getElementById("sentence").value, document.getElementById("letter").value);
+}
+
+function restOfSentence(sentence, letter) {
+    var index = sentence.indexOf(letter);
+    if (index == -1) {
+        return "The letter does not exist in the sentence"
+    }
+    return sentence.substring(index + 1);
+}
+
+    </script>
+</body>
+</html>
